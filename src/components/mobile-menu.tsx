@@ -44,11 +44,13 @@ export function MobileMenu({
         {open ? closeIcon : menuIcon}
       </button>
 
+      {/* Positioned absolute to the fixed header (its backdrop-filter makes it
+          the containing block, so `fixed` here would collapse the panel). */}
       <div
         id="mobile-menu"
         inert={!open}
         className={cn(
-          "fixed inset-x-0 top-20 bottom-0 z-40 flex flex-col justify-between overflow-y-auto border-t border-white/5 bg-canvas/98 px-5 py-10 backdrop-blur-sm transition-opacity duration-300",
+          "absolute inset-x-0 top-full z-40 flex h-[calc(100dvh-5rem)] flex-col justify-between overflow-y-auto border-t border-white/5 bg-canvas/98 px-5 py-10 backdrop-blur-sm transition-opacity duration-300",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
