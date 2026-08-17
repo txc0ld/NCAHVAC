@@ -1,5 +1,4 @@
 import { Container } from "./container";
-import { Reveal } from "./reveal";
 import { stats } from "@/content/home";
 import { cn } from "@/lib/cn";
 
@@ -9,10 +8,9 @@ export function Stats() {
       <Container>
         <div className="grid divide-y divide-white/5 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
           {stats.map((stat, i) => (
-            <Reveal
+            <div
               key={stat.label}
-              delay={i * 0.08}
-              className="group px-2 py-10 lg:px-10 lg:py-16"
+              className="reveal-3d group px-2 py-10 lg:px-10 lg:py-16"
             >
               <p className="font-condensed text-6xl leading-none font-semibold text-primary uppercase transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 lg:text-7xl">
                 {stat.value}
@@ -26,7 +24,7 @@ export function Stats() {
               >
                 {stat.label}
               </p>
-            </Reveal>
+            </div>
           ))}
         </div>
       </Container>

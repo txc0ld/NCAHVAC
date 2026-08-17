@@ -26,7 +26,7 @@ export function ServicesGrid() {
               <Link
                 key={service.slug}
                 href={`/services#${service.slug}`}
-                className="group relative block aspect-square overflow-hidden bg-surface lg:aspect-[3/4]"
+                className="reveal-3d group relative block aspect-square overflow-hidden bg-surface lg:aspect-[3/4]"
               >
                 <Image
                   src={service.image.src}

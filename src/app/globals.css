@@ -123,6 +123,17 @@ summary::-webkit-details-marker {
   }
 }
 
+@keyframes reveal-3d {
+  from {
+    opacity: 0;
+    transform: perspective(1100px) translateY(56px) rotateX(7deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1100px) translateY(0) rotateX(0deg);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     /* The 1ms duration is inert (the view timeline drives progress) but
@@ -136,6 +147,15 @@ summary::-webkit-details-marker {
     .parallax-drift {
       animation: drift-y 1ms linear both;
       animation-timeline: view();
+    }
+
+    /* Flowing 3D entrance: content planes rise and level out as they enter.
+       Translation-led with a shallow perspective settle; static fallback
+       everywhere animation-timeline is unsupported. */
+    .reveal-3d {
+      animation: reveal-3d 1ms both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 55%;
     }
   }
 
