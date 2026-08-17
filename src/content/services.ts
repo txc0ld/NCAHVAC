@@ -56,7 +56,7 @@ export const serviceGroups: ServiceGroup[] = [
     icon: "buildings-2-linear",
     image: {
       src: "/images/commercial.jpg",
-      alt: "Mechanical services work in a commercial plant environment",
+      alt: "Insulated ductwork and air-handling units in a commercial plant room",
     },
   },
   {
@@ -78,7 +78,7 @@ export const serviceGroups: ServiceGroup[] = [
     icon: "settings-linear",
     image: {
       src: "/images/repair.jpg",
-      alt: "Technician fault-finding on wall-mounted equipment",
+      alt: "Manifold gauges connected to a split-system condenser during fault-finding",
     },
   },
   {
@@ -100,7 +100,7 @@ export const serviceGroups: ServiceGroup[] = [
     icon: "snowflake-linear",
     image: {
       src: "/images/maintenance.jpg",
-      alt: "Split-system outdoor unit beside a dark rendered wall",
+      alt: "Outdoor condenser unit coil detail in low light",
     },
   },
 ];

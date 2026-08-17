@@ -33,7 +33,7 @@ export default function ServicesPage() {
         title="One technician."
         accent="Install, repair, maintain."
         lede="Residential and commercial installation, maintenance, fault-finding and refrigeration services across Perth."
-        image={{ src: "/images/commercial.jpg", alt: "" }}
+        image={{ src: "/images/hero.jpg", alt: "" }}
       />
 
       <nav aria-label="Service categories" className="border-y border-white/5 bg-surface-alt">
