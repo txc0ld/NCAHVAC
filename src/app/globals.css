@@ -1,26 +1,167 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-canvas: #111111;
+  --color-surface: #161616;
+  --color-surface-alt: #141414;
+  --color-footer: #0d0d0d;
+  --color-primary: #0b63d8;
+  --color-secondary: #e8222a;
+  /* Lighter variants for small text on dark surfaces (WCAG AA); the brand
+     values above stay for CTAs, rules and large display type. */
+  --color-primary-bright: #5b9bee;
+  --color-error: #ff6067;
+  --color-muted: #999999;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: var(--font-barlow-condensed), ui-sans-serif, system-ui,
+    sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-ticker: ticker 40s linear infinite;
+
+  @keyframes ticker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Supplied logo has a solid near-black field; screen blend melts it into the canvas. */
+.logo-screen {
+  mix-blend-mode: screen;
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-none border border-white/10 bg-canvas px-4 py-3 text-base text-white transition-colors duration-300 outline-none placeholder:text-white/50 focus:border-primary focus:ring-1 focus:ring-primary;
+  }
+
+  .field-label {
+    @apply mb-2 block font-condensed text-xs font-semibold tracking-[0.12em] text-white/80 uppercase;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-none px-6 py-3 font-condensed text-sm font-semibold tracking-[0.12em] uppercase transition-colors duration-300 active:translate-y-px;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-white hover:text-canvas;
+  }
+
+  .btn-ghost {
+    @apply border border-white/20 text-white hover:border-white hover:bg-white hover:text-canvas;
+  }
+}
+
+/* Motion layer: pure CSS, zero hydration. Content is visible by default;
+   scroll-driven reveals enhance on browsers supporting animation-timeline. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift-y {
+  from {
+    transform: translateY(var(--drift-from, -5%));
+  }
+  to {
+    transform: translateY(var(--drift-to, 5%));
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* The 1ms duration is inert (the view timeline drives progress) but
+       required by Firefox, which treats duration 0 as an inactive animation. */
+    .reveal {
+      animation: reveal-up 1ms both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 50%;
+    }
+
+    .parallax-drift {
+      animation: drift-y 1ms linear both;
+      animation-timeline: view();
+    }
+  }
+
+  .hero-enter {
+    animation: rise-in 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation-delay: var(--enter-delay, 0s);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-ticker {
+    animation: none;
+    transform: none;
+  }
+
+  /* Collapse all remaining transitions and animations (hover scales,
+     grayscale releases, line expansions) to effectively instant. */
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

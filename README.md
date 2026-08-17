@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NCA HVAC — Marketing & Lead-Generation Website
 
-## Getting Started
+Dark industrial marketing site for NCA HVAC (Perth, WA): residential and
+commercial air conditioning, refrigeration, repair and preventative
+maintenance. Built per `docs/PRD.md` and `docs/design.md`.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, TypeScript, statically rendered)
+- Tailwind CSS v4 (design tokens in `src/app/globals.css` `@theme`)
+- Barlow / Barlow Condensed via `next/font`
+- Solar icons (Iconify data, inlined server-side — zero client JS)
+- Motion: CSS scroll-driven animations only (no animation library)
+- Quote API: Zod validation, Cloudflare Turnstile, rate limiting,
+  magic-byte photo validation, Resend email delivery
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Regenerate brand-derived assets (favicon, OG image, trimmed logos):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+node scripts/prepare-assets.mjs
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+QA screenshots (requires Edge; server must be running):
 
-## Learn More
+```bash
+node scripts/shoot.mjs && node scripts/shoot-scroll.mjs
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Purpose | Behaviour when unset |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin | defaults to `https://www.ncahvac.com.au` |
+| `NEXT_PUBLIC_PHONE` | Business phone | Call CTAs fall back to email (no placeholder number can ship) |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Turnstile widget | widget not rendered |
+| `TURNSTILE_SECRET_KEY` | Turnstile verification | verification skipped (dev mode) |
+| `RESEND_API_KEY` | Quote email delivery | submissions logged without personal data |
+| `QUOTE_TO_EMAIL` | Recipient | `admin@ncahvac.com.au` |
+| `QUOTE_FROM_EMAIL` | Sender | `NCA HVAC Website <onboarding@resend.dev>` |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pre-launch blockers (PRD §30)
 
-## Deploy on Vercel
+- Business phone number (`NEXT_PUBLIC_PHONE`)
+- Resend domain + API key, delivery test to `admin@ncahvac.com.au`
+- Turnstile keys
+- Approved client photography — current images are documented placeholders,
+  see `ASSETS.md` (one CC BY image requires attribution or replacement)
+- Final licence / insurance / ABN wording
+- Client content approval
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Rate limiting is in-memory (per serverless instance). Swap for a durable
+  store (e.g. Upstash) if spam volume warrants.
+- Analytics: `src/lib/analytics.ts` emits the PRD §23 event taxonomy to
+  `window.plausible` / `dataLayer` when present; wire up a provider at launch.
