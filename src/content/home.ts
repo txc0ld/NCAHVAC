@@ -24,7 +24,6 @@ export const tickerItems = [
 
 export const stats = [
   { value: "10+", label: "Years of the owner's hands-on HVAC experience" },
-  { value: "2", label: "Residential + commercial capability" },
   { value: "Perth", label: "Metropolitan service area" },
   { value: "Free", label: "Quotes on every job" },
 ] as const;
@@ -52,7 +51,7 @@ export const faqs = [
   },
   {
     q: "Do you offer new air-conditioning installations?",
-    a: "Yes. Services include split-system installation and replacement, ducted air-conditioning installation and system upgrades.",
+    a: "Yes. Services include split-system installation and replacement, ducted air-conditioning installation and system upgrades. Large installations across residential and commercial.",
   },
   {
     q: "Can you diagnose an air-conditioning or refrigeration fault?",

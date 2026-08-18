@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
+import { TrustTicker } from "@/components/ticker";
 import { FinalCta } from "@/components/final-cta";
 import { site } from "@/lib/site";
 import { SolarIcon } from "@/lib/icons";
@@ -50,6 +51,8 @@ export default function ContactPage() {
         lede="Send the details of the job and you will hear back directly to arrange a free quote."
         image={{ src: "/images/repair.jpg", alt: "" }}
       />
+
+      <TrustTicker />
 
       <section className="border-y border-white/5 bg-surface-alt">
         <Container>

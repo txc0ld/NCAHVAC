@@ -6,7 +6,7 @@ export function Stats() {
   return (
     <section className="border-y border-white/5 bg-surface-alt">
       <Container>
-        <div className="grid divide-y divide-white/5 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+        <div className="grid divide-y divide-white/5 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
           {stats.map((stat, i) => (
             <div
               key={stat.label}

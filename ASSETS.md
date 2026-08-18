@@ -7,12 +7,12 @@ components.
 
 | File | Subject | Source | License | Notes |
 |---|---|---|---|---|
-| `images/hero.jpg` | Technician with manifold gauges commissioning a heat pump condenser | Wikimedia Commons `Heat_Pump_Installation_(51323299230).jpg` | CC BY 2.0 — attribution required if kept | Homepage + services hero backgrounds. Small unit-brand mark visible; review before launch |
+| `images/hero.jpg` | Side-discharge outdoor condenser in low light (Australian-style unit) | Wikimedia Commons `Outdoor_air_conditioner_unit_installed_in_residential_garden_space.jpg` | CC BY 2.0 — attribution required if kept | Homepage + services hero backgrounds |
 | `images/residential.jpg` | Modern Australian home at dusk | Unsplash `photo-1600585154340-be6161a56a0c` | Unsplash License | Residential service card |
 | `images/commercial.jpg` | Insulated ductwork + AHUs, commercial plant room, Brisbane | Wikimedia Commons `Air_conditioning_ductwork_in_large_commercial_building,_Brisbane.jpg` | CC BY-SA 3.0 — attribution + share-alike if kept | Commercial HVAC card |
 | `images/repair.jpg` | Digital manifold gauges on a split-system condenser | Wikimedia Commons `Cool_under_pressure-_386th_ECES_HVAC_technicians_in_action_(9047740).jpg` | Public domain (US Air Force) | Breakdown & repair card + contact hero. Small unit-brand mark visible; review before launch |
-| `images/maintenance.jpg` | Outdoor condenser coil detail, low light | Wikimedia Commons `Outdoor_air_conditioner_unit_installed_in_residential_garden_space.jpg` | CC BY 2.0 — attribution required if kept | Preventative maintenance card |
-| `images/technician.jpg` | Tradesperson portrait, arms crossed | Unsplash `photo-1621905252507-b35492cc74b4` (design.md-approved reference) | Unsplash License | About sections; replace with owner photo when available |
+| `images/maintenance.jpg` | Split-system outdoor unit beside dark rendered wall and hedges | Wikimedia Commons `Carrier_Outdoor_Split_Air_Conditioner_Heat_Pump_System_(55005181522).jpg` | CC BY 2.0 — attribution required if kept | Preventative maintenance card. Small Carrier badge; review before launch |
+| `images/technician.jpg` | Technician connecting service gauges to an outdoor unit | Wikimedia Commons `Heat_Pump_Installation_(51323299230).jpg` | CC BY 2.0 — attribution required if kept | About sections; replace with owner photo when available |
 | `images/planning.jpg` | Engineering drawings / planning desk | Unsplash `photo-1581092160562-40aa08e78837` (design.md-approved reference) | Unsplash License | About page hero backdrop |
 | `brand/logo-dark.png` | NCA HVAC logo (dark field) | Client-supplied | Client-owned | Rendered with `mix-blend-mode: screen` over `#111111` |
 | `brand/logo-light.png` | NCA HVAC logo (light field) | Client-supplied | Client-owned | For light contexts (email, print) |

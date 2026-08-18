@@ -30,8 +30,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         overline="Services"
-        title="One technician."
-        accent="Install, repair, maintain."
+        title="Install. Repair."
+        accent="Maintain."
         lede="Residential and commercial installation, maintenance, fault-finding and refrigeration services across Perth."
         image={{ src: "/images/hero.jpg", alt: "" }}
       />
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                         alt={service.image.alt}
                         fill
                         sizes="(min-width: 1024px) 40vw, 100vw"
-                        className="scale-[1.12] object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                        className="scale-[1.12] object-cover"
                       />
                     </ParallaxY>
                     <span

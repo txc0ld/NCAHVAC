@@ -108,6 +108,8 @@ export function SiteFooter() {
         <div className="mt-14 flex flex-col gap-3 border-t border-white/5 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+            {/* Add ARCtick licence number here once issued. */}
+            <span className="ml-3">ABN 80 700 964 405</span>
           </p>
           <Link
             href="/privacy"

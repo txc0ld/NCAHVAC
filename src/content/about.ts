@@ -8,7 +8,7 @@ export const about = {
   ],
   image: {
     src: "/images/technician.jpg",
-    alt: "Qualified technician standing beside wall-mounted equipment",
+    alt: "Technician connecting service gauges during a system commissioning",
   },
 } as const;
 

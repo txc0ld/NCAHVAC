@@ -11,12 +11,12 @@ export function ServicesGrid() {
       <Container>
         <Reveal>
           <h2 className="max-w-3xl font-condensed text-5xl leading-[0.95] font-medium tracking-[-0.02em] uppercase lg:text-7xl">
-            HVAC services built around{" "}
-            <span className="text-primary">the job.</span>
+            Precision HVAC services{" "}
+            <span className="text-primary">for every job.</span>
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted">
-            Residential and commercial installation, maintenance, fault-finding
-            and refrigeration services across Perth.
+            Delivering installation, servicing, maintenance and refrigeration
+            solutions for Perth homes, businesses and commercial sites.
           </p>
         </Reveal>
 
@@ -33,7 +33,7 @@ export function ServicesGrid() {
                   alt={service.image.alt}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover grayscale transition-[filter,transform] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105"
                 />
                 <div
                   aria-hidden="true"
