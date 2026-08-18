@@ -1,18 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
-import logoDark from "../../public/brand/logo-dark.png";
+import { BrandLogo } from "@/components/brand-logo";
 import { QuoteCta } from "@/components/cta";
 
 export default function NotFound() {
   return (
     <section className="flex min-h-[70svh] items-center py-24">
       <div className="mx-auto flex w-full max-w-[1400px] flex-col items-start px-5">
-        <Image
-          src={logoDark}
-          alt="NCA HVAC"
-          className="logo-screen h-16 w-auto"
-          sizes="220px"
-        />
+        <BrandLogo className="h-16" sizes="220px" />
         <p className="mt-10 flex items-center gap-4 font-condensed text-xs font-semibold tracking-[0.2em] uppercase">
           <span aria-hidden="true" className="h-px w-8 bg-secondary" />
           404

@@ -8,10 +8,10 @@ export function MaintenanceBanner() {
     <section className="py-24 lg:py-32">
       <Container>
         <Reveal>
-          <div className="relative overflow-hidden border-l-4 border-primary bg-gradient-to-r from-[#1a1a1a] to-canvas px-6 py-14 lg:px-16 lg:py-20">
+          <div className="relative overflow-hidden border-l-4 border-primary bg-gradient-to-r from-surface-alt to-canvas px-6 py-14 lg:px-16 lg:py-20">
             <SolarIcon
               name="wind-linear"
-              className="pointer-events-none absolute -top-10 -right-10 text-[22rem] text-white/[0.02] lg:text-[30rem]"
+              className="pointer-events-none absolute -top-10 -right-10 text-[22rem] text-ink/[0.02] lg:text-[30rem]"
             />
             <span
               aria-hidden="true"

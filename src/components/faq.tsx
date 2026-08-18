@@ -15,8 +15,8 @@ export function Faq() {
 
         <Reveal delay={0.1} className="mt-12">
           {faqs.map((faq) => (
-            <details key={faq.q} className="group border-b border-white/10">
-              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 font-condensed text-xl font-medium tracking-[0.02em] text-white uppercase transition-colors duration-300 hover:text-primary lg:text-2xl">
+            <details key={faq.q} className="group border-b border-ink/10">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 font-condensed text-xl font-medium tracking-[0.02em] text-ink uppercase transition-colors duration-300 hover:text-primary lg:text-2xl">
                 {faq.q}
                 <SolarIcon
                   name="alt-arrow-down-linear"

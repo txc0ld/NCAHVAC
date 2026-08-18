@@ -12,7 +12,7 @@ function Track({ hidden }: { hidden?: boolean }) {
     >
       {tickerItems.map((item) => (
         <li key={item} className="flex shrink-0 items-center">
-          <span className="px-8 font-condensed text-3xl font-semibold whitespace-nowrap text-white/35 uppercase lg:px-12 lg:text-5xl">
+          <span className="px-8 font-condensed text-3xl font-semibold whitespace-nowrap text-ink/35 uppercase lg:px-12 lg:text-5xl">
             {item}
           </span>
           <span aria-hidden="true" className="h-px w-8 bg-secondary/70" />
@@ -27,7 +27,7 @@ export function TrustTicker() {
   return (
     <section
       aria-label="NCA HVAC at a glance"
-      className="relative overflow-hidden border-y border-white/5 py-8 lg:py-10"
+      className="relative overflow-hidden border-y border-ink/5 py-8 lg:py-10"
     >
       <div className="animate-ticker flex w-max motion-reduce:w-full motion-reduce:flex-wrap">
         <Track />

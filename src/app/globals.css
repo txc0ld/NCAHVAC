@@ -1,17 +1,49 @@
 @import "tailwindcss";
 
-@theme {
-  --color-canvas: #111111;
-  --color-surface: #161616;
-  --color-surface-alt: #141414;
-  --color-footer: #0d0d0d;
-  --color-primary: #0b63d8;
-  --color-secondary: #e8222a;
+/* Theme palettes. Dark is the brand default (design.md); .light on <html>
+   switches. Every component colour flows through these tokens. */
+:root {
+  color-scheme: dark;
+  --canvas: #111111;
+  --surface: #161616;
+  --surface-alt: #141414;
+  --footer: #0d0d0d;
+  --ink: #ffffff;
+  --muted: #999999;
+  --primary: #0b63d8;
+  --secondary: #e8222a;
   /* Lighter variants for small text on dark surfaces (WCAG AA); the brand
      values above stay for CTAs, rules and large display type. */
-  --color-primary-bright: #5b9bee;
-  --color-error: #ff6067;
-  --color-muted: #999999;
+  --primary-bright: #5b9bee;
+  --error: #ff6067;
+}
+
+.light {
+  color-scheme: light;
+  --canvas: #f5f6f8;
+  --surface: #ffffff;
+  --surface-alt: #eceef2;
+  --footer: #e7e9ee;
+  --ink: #15171c;
+  --muted: #565e6b;
+  --primary: #0b63d8;
+  --secondary: #d31c24;
+  /* On light surfaces the "bright" accent must darken to keep AA contrast. */
+  --primary-bright: #0a55b4;
+  --error: #c11a21;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-footer: var(--footer);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-primary-bright: var(--primary-bright);
+  --color-error: var(--error);
 
   --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
   --font-condensed: var(--font-barlow-condensed), ui-sans-serif, system-ui,
@@ -34,18 +66,18 @@ html {
 }
 
 body {
-  background: var(--color-canvas);
-  color: #ffffff;
+  background: var(--canvas);
+  color: var(--ink);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-primary);
+  background: var(--primary);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -62,18 +94,43 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-/* Supplied logo has a solid near-black field; screen blend melts it into the canvas. */
+/* Brand logo blending: the dark-field logo screens into dark surfaces, the
+   light-field logo multiplies into light surfaces. BrandLogo renders both;
+   the theme decides which is visible. */
 .logo-screen {
   mix-blend-mode: screen;
 }
 
+.logo-multiply {
+  mix-blend-mode: multiply;
+}
+
+.theme-light-only {
+  display: none;
+}
+
+.light .theme-light-only {
+  display: block;
+}
+
+.light .theme-dark-only {
+  display: none;
+}
+
+/* Atmospheric hero imagery: luminosity blend reads ghost-dark on the dark
+   canvas; on light it needs a touch more presence and a soft grayscale. */
+.light .mix-blend-luminosity {
+  opacity: 0.5;
+  filter: grayscale(35%);
+}
+
 @layer components {
   .field {
-    @apply w-full rounded-none border border-white/10 bg-canvas px-4 py-3 text-base text-white transition-colors duration-300 outline-none placeholder:text-white/50 focus:border-primary focus:ring-1 focus:ring-primary;
+    @apply w-full rounded-none border border-ink/10 bg-canvas px-4 py-3 text-base text-ink transition-colors duration-300 outline-none placeholder:text-ink/50 focus:border-primary focus:ring-1 focus:ring-primary;
   }
 
   .field-label {
-    @apply mb-2 block font-condensed text-xs font-semibold tracking-[0.12em] text-white/80 uppercase;
+    @apply mb-2 block font-condensed text-xs font-semibold tracking-[0.12em] text-ink/80 uppercase;
   }
 
   .btn-primary,
@@ -82,11 +139,11 @@ summary::-webkit-details-marker {
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-white hover:text-canvas;
+    @apply bg-primary text-white hover:bg-ink hover:text-canvas;
   }
 
   .btn-ghost {
-    @apply border border-white/20 text-white hover:border-white hover:bg-white hover:text-canvas;
+    @apply border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-canvas;
   }
 }
 

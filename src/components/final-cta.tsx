@@ -37,9 +37,9 @@ export function FinalCta({ id = "quote" }: { id?: string }) {
                   <li>
                     <a
                       href={telHref(site.phone)}
-                      className="group inline-flex items-center gap-4 text-white transition-colors duration-300 hover:text-primary-bright"
+                      className="group inline-flex items-center gap-4 text-ink transition-colors duration-300 hover:text-primary-bright"
                     >
-                      <span className="flex size-11 items-center justify-center rounded-full border border-white/10 text-lg transition-colors duration-300 group-hover:border-primary">
+                      <span className="flex size-11 items-center justify-center rounded-full border border-ink/10 text-lg transition-colors duration-300 group-hover:border-primary">
                         <SolarIcon name="phone-linear" />
                       </span>
                       {site.phone}
@@ -49,16 +49,16 @@ export function FinalCta({ id = "quote" }: { id?: string }) {
                 <li>
                   <a
                     href={`mailto:${site.email}`}
-                    className="group inline-flex items-center gap-4 text-white transition-colors duration-300 hover:text-primary-bright"
+                    className="group inline-flex items-center gap-4 text-ink transition-colors duration-300 hover:text-primary-bright"
                   >
-                    <span className="flex size-11 items-center justify-center rounded-full border border-white/10 text-lg transition-colors duration-300 group-hover:border-primary">
+                    <span className="flex size-11 items-center justify-center rounded-full border border-ink/10 text-lg transition-colors duration-300 group-hover:border-primary">
                       <SolarIcon name="letter-linear" />
                     </span>
                     {site.email}
                   </a>
                 </li>
                 <li className="inline-flex items-center gap-4 text-muted">
-                  <span className="flex size-11 items-center justify-center rounded-full border border-white/10 text-lg">
+                  <span className="flex size-11 items-center justify-center rounded-full border border-ink/10 text-lg">
                     <SolarIcon name="map-point-linear" />
                   </span>
                   {site.location}

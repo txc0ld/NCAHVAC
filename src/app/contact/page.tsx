@@ -54,19 +54,19 @@ export default function ContactPage() {
 
       <TrustTicker />
 
-      <section className="border-y border-white/5 bg-surface-alt">
+      <section className="border-y border-ink/5 bg-surface-alt">
         <Container>
-          <dl className="grid divide-y divide-white/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <dl className="grid divide-y divide-ink/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {details.map((d, i) => (
               <Reveal key={d.label} delay={i * 0.06} className="flex items-center gap-4 px-2 py-6 sm:px-8">
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/10 text-lg text-primary">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-ink/10 text-lg text-primary">
                   <SolarIcon name={d.icon} />
                 </span>
                 <div>
-                  <dt className="font-condensed text-xs font-semibold tracking-[0.2em] text-white/50 uppercase">
+                  <dt className="font-condensed text-xs font-semibold tracking-[0.2em] text-ink/50 uppercase">
                     {d.label}
                   </dt>
-                  <dd className="mt-1 text-sm text-white">
+                  <dd className="mt-1 text-sm text-ink">
                     {"href" in d && d.href ? (
                       <a
                         href={d.href}

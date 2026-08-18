@@ -21,7 +21,7 @@ export function NavLinks({ className }: { className?: string }) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex min-h-11 items-center border-b-2 pt-0.5 font-condensed text-xs font-semibold tracking-[0.12em] text-white uppercase transition-colors duration-300 hover:text-primary-bright",
+                  "inline-flex min-h-11 items-center border-b-2 pt-0.5 font-condensed text-xs font-semibold tracking-[0.12em] text-ink uppercase transition-colors duration-300 hover:text-primary-bright",
                   active ? "border-primary" : "border-transparent",
                 )}
               >

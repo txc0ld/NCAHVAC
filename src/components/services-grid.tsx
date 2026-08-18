@@ -21,7 +21,7 @@ export function ServicesGrid() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-14 grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-1 gap-px bg-ink/5 sm:grid-cols-2 lg:grid-cols-4">
             {serviceGroups.map((service, i) => (
               <Link
                 key={service.slug}
@@ -41,10 +41,10 @@ export function ServicesGrid() {
                 />
 
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <span className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-canvas/60 text-xl text-white backdrop-blur-sm">
+                  <span className="flex size-11 items-center justify-center rounded-full border border-ink/10 bg-canvas/60 text-xl text-ink backdrop-blur-sm">
                     <SolarIcon name={service.icon} />
                   </span>
-                  <h3 className="mt-4 font-condensed text-2xl leading-none font-semibold text-white uppercase">
+                  <h3 className="mt-4 font-condensed text-2xl leading-none font-semibold text-ink uppercase">
                     {service.title}
                   </h3>
                   <div className="mt-3 flex items-center gap-1">
@@ -54,7 +54,7 @@ export function ServicesGrid() {
                   <p className="mt-0 max-h-0 overflow-hidden text-sm leading-relaxed text-muted opacity-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:mt-3 group-hover:max-h-32 group-hover:opacity-100">
                     {service.summary}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 font-condensed text-xs font-semibold tracking-[0.12em] text-white/70 uppercase transition-colors duration-300 group-hover:text-primary-bright">
+                  <span className="mt-4 inline-flex items-center gap-2 font-condensed text-xs font-semibold tracking-[0.12em] text-ink/70 uppercase transition-colors duration-300 group-hover:text-primary-bright">
                     View services
                     <SolarIcon
                       name="arrow-right-linear"
@@ -65,7 +65,7 @@ export function ServicesGrid() {
 
                 <span
                   aria-hidden="true"
-                  className="absolute top-5 right-5 font-condensed text-sm font-semibold text-white/30"
+                  className="absolute top-5 right-5 font-condensed text-sm font-semibold text-ink/30"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>

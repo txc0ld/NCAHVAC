@@ -14,12 +14,12 @@ export function WhyGrid() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <ul className="mt-14 grid border-t border-l border-white/5 lg:grid-cols-2">
+          <ul className="mt-14 grid border-t border-l border-ink/5 lg:grid-cols-2">
             {whyChoose.map((item, i) => (
               <li
                 key={item}
                 className={cn(
-                  "group flex items-baseline gap-5 border-r border-b border-white/5 p-6 transition-colors duration-300 hover:bg-surface lg:p-8",
+                  "group flex items-baseline gap-5 border-r border-b border-ink/5 p-6 transition-colors duration-300 hover:bg-surface lg:p-8",
                   i === whyChoose.length - 1 && "lg:col-span-2",
                 )}
               >
@@ -29,7 +29,7 @@ export function WhyGrid() {
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-condensed text-xl font-medium tracking-[0.02em] text-white uppercase transition-colors duration-300 group-hover:text-primary lg:text-2xl">
+                <span className="font-condensed text-xl font-medium tracking-[0.02em] text-ink uppercase transition-colors duration-300 group-hover:text-primary lg:text-2xl">
                   {item}
                 </span>
               </li>

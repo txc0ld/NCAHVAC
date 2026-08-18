@@ -4,9 +4,9 @@ import { cn } from "@/lib/cn";
 
 export function Stats() {
   return (
-    <section className="border-y border-white/5 bg-surface-alt">
+    <section className="border-y border-ink/5 bg-surface-alt">
       <Container>
-        <div className="grid divide-y divide-white/5 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+        <div className="grid divide-y divide-ink/5 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
           {stats.map((stat, i) => (
             <div
               key={stat.label}

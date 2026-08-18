@@ -15,7 +15,11 @@ async function run() {
   const darkMeta = await dark.clone().toBuffer({ resolveWithObject: true });
   await sharp(darkMeta.data).resize({ width: 760 }).png().toFile(`${BRAND}/logo-dark.png`);
 
-  const light = sharp(`${BRAND}/logo-light-src.png`).trim({ threshold: 24 });
+  // The white-point clamp pushes the near-white field to true white so
+  // mix-blend-mode: multiply melts it into any light background.
+  const light = sharp(`${BRAND}/logo-light-src.png`)
+    .trim({ threshold: 24 })
+    .linear(1.07, 0);
   await light.clone().resize({ width: 760 }).png().toFile(`${BRAND}/logo-light.png`);
 
   // Badge crop for favicon: left ~36% of the trimmed dark logo, then re-trim + square pad.

@@ -70,15 +70,15 @@ export function HeroHome() {
         className="hero-enter absolute right-0 bottom-0 z-20 hidden md:block"
         style={enter(0.45)}
       >
-        <div className="border-t border-l border-white/10 bg-surface/90 px-8 py-6 backdrop-blur-sm">
+        <div className="border-t border-l border-ink/10 bg-surface/90 px-8 py-6 backdrop-blur-sm">
           <span aria-hidden="true" className="block h-px w-10 bg-secondary" />
-          <p className="mt-4 font-condensed text-3xl leading-none font-semibold text-white uppercase">
+          <p className="mt-4 font-condensed text-3xl leading-none font-semibold text-ink uppercase">
             10+ years
           </p>
           <p className="mt-1 font-condensed text-sm font-semibold tracking-[0.08em] text-muted uppercase">
             Owner&rsquo;s hands-on HVAC experience
           </p>
-          <p className="mt-3 text-xs text-white/70">
+          <p className="mt-3 text-xs text-ink/70">
             Owner Operated &bull; Perth, WA
           </p>
         </div>

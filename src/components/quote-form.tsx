@@ -258,7 +258,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
     return (
       <div
         role="status"
-        className="border border-white/5 bg-surface p-8 lg:p-10"
+        className="border border-ink/5 bg-surface p-8 lg:p-10"
       >
         <span aria-hidden="true" className="block h-1 w-16 bg-primary" />
         <h3 className="mt-6 font-condensed text-3xl font-semibold uppercase">
@@ -292,7 +292,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="border border-white/5 bg-surface p-6 sm:p-8 lg:p-10"
+      className="border border-ink/5 bg-surface p-6 sm:p-8 lg:p-10"
     >
       <div
         ref={summaryRef}
@@ -303,7 +303,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       >
         {errorEntries.length > 0 || fileError ? (
           <div className="mb-6 border-l-2 border-error pl-4">
-            <p className="font-condensed text-sm font-semibold tracking-[0.1em] text-white uppercase">
+            <p className="font-condensed text-sm font-semibold tracking-[0.1em] text-ink uppercase">
               Please fix the following before sending
             </p>
             <ul className="mt-2 space-y-1 text-sm text-error">
@@ -350,7 +350,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
 
       <fieldset className="mt-6">
         <legend className="field-label">Property type</legend>
-        <div className="grid grid-cols-2 gap-px bg-white/10">
+        <div className="grid grid-cols-2 gap-px bg-ink/10">
           {(["residential", "commercial"] as const).map((value) => (
             <label
               key={value}
@@ -437,7 +437,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
 
       <div className="mt-6">
         <label htmlFor="q-photos" className="field-label">
-          Photos <span className="text-white/60">(optional, max 5)</span>
+          Photos <span className="text-ink/60">(optional, max 5)</span>
         </label>
         <input
           ref={fileInputRef}
@@ -462,7 +462,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
                     setFileError(null);
                     if (fileInputRef.current) fileInputRef.current.value = "";
                   }}
-                  className="inline-flex min-h-11 items-center px-2 font-condensed text-xs font-semibold tracking-[0.1em] text-error uppercase hover:text-white"
+                  className="inline-flex min-h-11 items-center px-2 font-condensed text-xs font-semibold tracking-[0.1em] text-error uppercase hover:text-ink"
                 >
                   Remove
                   <span className="sr-only"> {f.name}</span>
@@ -481,7 +481,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       {TURNSTILE_KEY ? <div ref={widgetRef} className="mt-6" /> : null}
 
       {serverMessage ? (
-        <p role="alert" className="mt-6 border-l-2 border-error pl-4 text-sm text-white">
+        <p role="alert" className="mt-6 border-l-2 border-error pl-4 text-sm text-ink">
           {serverMessage}
         </p>
       ) : null}
@@ -497,7 +497,7 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
         {status === "submitting" ? "Sending" : "Request My Free Quote"}
       </button>
 
-      <p className="mt-4 text-xs leading-relaxed text-white/60">
+      <p className="mt-4 text-xs leading-relaxed text-ink/60">
         Your details are used only to respond to this enquiry and are never
         sold. See our privacy statement for how information is handled.
       </p>

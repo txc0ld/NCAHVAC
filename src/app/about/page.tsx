@@ -99,7 +99,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-white/5 bg-surface-alt py-24 lg:py-32">
+      <section className="border-y border-ink/5 bg-surface-alt py-24 lg:py-32">
         <Container>
           <Reveal>
             <h2 className="max-w-3xl font-condensed text-5xl leading-[0.95] font-medium tracking-[-0.02em] uppercase lg:text-6xl">
@@ -107,14 +107,14 @@ export default function AboutPage() {
               <span className="text-primary">looks like</span>
             </h2>
           </Reveal>
-          <div className="mt-14 grid gap-px bg-white/5 sm:grid-cols-2">
+          <div className="mt-14 grid gap-px bg-ink/5 sm:grid-cols-2">
             {aboutPage.values.map((value, i) => (
               <Reveal
                 key={value.title}
                 delay={i * 0.06}
                 className="group bg-canvas p-8 transition-colors duration-300 hover:bg-surface lg:p-10"
               >
-                <span className="flex size-12 items-center justify-center rounded-full border border-white/10 text-2xl text-primary">
+                <span className="flex size-12 items-center justify-center rounded-full border border-ink/10 text-2xl text-primary">
                   <SolarIcon name={value.icon} />
                 </span>
                 <h3 className="mt-6 font-condensed text-2xl font-semibold uppercase">

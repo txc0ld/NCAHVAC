@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import logoDark from "../../public/brand/logo-dark.png";
+import { BrandLogo } from "./brand-logo";
 import { Container } from "./container";
 import { serviceGroups } from "@/content/services";
 import { nav, site, telHref } from "@/lib/site";
@@ -8,19 +7,14 @@ import { SolarIcon } from "@/lib/icons";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 bg-footer">
+    <footer className="border-t border-ink/5 bg-footer">
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" aria-label="NCA HVAC home" className="inline-block">
-              <Image
-                src={logoDark}
-                alt="NCA HVAC. Air conditioning and refrigeration services."
-                className="logo-screen h-16 w-auto"
-                sizes="220px"
-              />
+              <BrandLogo className="h-16" sizes="220px" />
             </Link>
-            <p className="mt-5 font-condensed text-sm font-semibold tracking-[0.2em] text-white uppercase">
+            <p className="mt-5 font-condensed text-sm font-semibold tracking-[0.2em] text-ink uppercase">
               {site.tagline}
             </p>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
@@ -29,7 +23,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-white/60 uppercase">
+            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-ink/60 uppercase">
               Navigation
             </h2>
             <ul className="mt-5 space-y-3">
@@ -47,7 +41,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-white/60 uppercase">
+            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-ink/60 uppercase">
               Services
             </h2>
             <ul className="mt-5 space-y-3">
@@ -73,7 +67,7 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-white/60 uppercase">
+            <h2 className="font-condensed text-sm font-semibold tracking-[0.2em] text-ink/60 uppercase">
               Contact
             </h2>
             <ul className="mt-5 space-y-3 text-sm text-muted">
@@ -105,7 +99,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/5 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-ink/5 pt-6 text-xs text-ink/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
             {/* Add ARCtick licence number here once issued. */}

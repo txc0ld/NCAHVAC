@@ -4,12 +4,12 @@ import { SolarIcon } from "@/lib/icons";
 
 export function ServiceArea() {
   return (
-    <section className="border-y border-white/5 bg-surface-alt">
+    <section className="border-y border-ink/5 bg-surface-alt">
       <Container className="py-16 lg:py-20">
         <Reveal>
           <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-start gap-5">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full border border-white/10 text-2xl text-primary">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-full border border-ink/10 text-2xl text-primary">
                 <SolarIcon name="map-point-linear" />
               </span>
               <div>

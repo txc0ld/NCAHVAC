@@ -36,14 +36,14 @@ export default function ServicesPage() {
         image={{ src: "/images/hero.jpg", alt: "" }}
       />
 
-      <nav aria-label="Service categories" className="border-y border-white/5 bg-surface-alt">
+      <nav aria-label="Service categories" className="border-y border-ink/5 bg-surface-alt">
         <Container>
           <ul className="hide-scrollbar flex snap-x items-center gap-8 overflow-x-auto py-4">
             {serviceGroups.map((s) => (
               <li key={s.slug} className="shrink-0 snap-start">
                 <Link
                   href={`#${s.slug}`}
-                  className="inline-flex min-h-11 items-center gap-2 font-condensed text-xs font-semibold tracking-[0.12em] whitespace-nowrap text-white/70 uppercase transition-colors duration-300 hover:text-primary-bright"
+                  className="inline-flex min-h-11 items-center gap-2 font-condensed text-xs font-semibold tracking-[0.12em] whitespace-nowrap text-ink/70 uppercase transition-colors duration-300 hover:text-primary-bright"
                 >
                   <SolarIcon name={s.icon} className="text-base text-primary" />
                   {s.title}
@@ -60,7 +60,7 @@ export default function ServicesPage() {
           id={service.slug}
           className={
             index % 2 === 1
-              ? "scroll-mt-20 border-y border-white/5 bg-surface-alt py-24 lg:py-28"
+              ? "scroll-mt-20 border-y border-ink/5 bg-surface-alt py-24 lg:py-28"
               : "scroll-mt-20 py-24 lg:py-28"
           }
         >
@@ -68,7 +68,7 @@ export default function ServicesPage() {
             <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
               <div>
                 <Reveal>
-                  <p className="flex items-center gap-4 font-condensed text-xs font-semibold tracking-[0.2em] text-white/60 uppercase">
+                  <p className="flex items-center gap-4 font-condensed text-xs font-semibold tracking-[0.2em] text-ink/60 uppercase">
                     <span
                       aria-hidden="true"
                       className="font-condensed text-secondary"
@@ -108,17 +108,17 @@ export default function ServicesPage() {
               </div>
 
               <Reveal delay={0.08}>
-                <ul className="grid border-t border-l border-white/5 sm:grid-cols-2">
+                <ul className="grid border-t border-l border-ink/5 sm:grid-cols-2">
                   {service.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3 border-r border-b border-white/5 p-5 transition-colors duration-300 hover:bg-surface lg:p-6"
+                      className="flex items-start gap-3 border-r border-b border-ink/5 p-5 transition-colors duration-300 hover:bg-surface lg:p-6"
                     >
                       <SolarIcon
                         name="check-circle-linear"
                         className="mt-0.5 shrink-0 text-lg text-primary"
                       />
-                      <span className="text-base leading-snug text-white/90">
+                      <span className="text-base leading-snug text-ink/90">
                         {item}
                       </span>
                     </li>
