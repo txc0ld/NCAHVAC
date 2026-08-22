@@ -15,7 +15,32 @@ export default function NotFound() {
           Page <span className="text-primary">not found</span>
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
-          The page you are after does not exist or has moved.
+          The page you are after does not exist or has moved. Everything on
+          this site is linked from the{" "}
+          <Link href="/" className="underline hover:text-primary-bright">
+            home page
+          </Link>
+          ,{" "}
+          <Link href="/services" className="underline hover:text-primary-bright">
+            services
+          </Link>
+          ,{" "}
+          <Link href="/about" className="underline hover:text-primary-bright">
+            about
+          </Link>{" "}
+          and{" "}
+          <Link href="/contact" className="underline hover:text-primary-bright">
+            contact
+          </Link>{" "}
+          pages, and indexed in{" "}
+          <a href="/sitemap.xml" className="underline hover:text-primary-bright">
+            /sitemap.xml
+          </a>{" "}
+          and{" "}
+          <a href="/llms.txt" className="underline hover:text-primary-bright">
+            /llms.txt
+          </a>
+          .
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <QuoteCta />

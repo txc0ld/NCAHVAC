@@ -105,12 +105,25 @@ export function SiteFooter() {
             {/* Add ARCtick licence number here once issued. */}
             <span className="ml-3">ABN 80 700 964 405</span>
           </p>
-          <Link
-            href="/privacy"
-            className="inline-flex min-h-11 items-center transition-colors duration-300 hover:text-primary-bright"
-          >
-            Privacy
-          </Link>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <p>
+              Website created by{" "}
+              <a
+                href="https://fantomlabs.io"
+                target="_blank"
+                rel="noopener"
+                className="transition-colors duration-300 hover:text-primary-bright"
+              >
+                Fantomlabs
+              </a>
+            </p>
+            <Link
+              href="/privacy"
+              className="inline-flex min-h-11 items-center transition-colors duration-300 hover:text-primary-bright"
+            >
+              Privacy
+            </Link>
+          </div>
         </div>
       </Container>
     </footer>

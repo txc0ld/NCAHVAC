@@ -12,15 +12,16 @@ import { SolarIcon } from "@/lib/icons";
 import { JsonLd, servicesSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Services | Split Systems, Ducted, Commercial HVAC & Refrigeration Perth",
+  title: "Air Conditioning Services Perth | Split Systems, Ducted & Refrigeration",
   description:
-    "Split system installation, ducted air conditioning, commercial HVAC, refrigeration repair and preventative maintenance across Perth. Residential and commercial. Free quotes.",
+    "Split system installation, ducted air conditioning, commercial HVAC, refrigeration repairs and preventative maintenance across Perth. Residential and commercial. Free quotes.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "NCA HVAC Services | Air Conditioning, Refrigeration & Maintenance Perth",
     description:
       "Residential and commercial HVAC services across Perth: installation, repair, refrigeration and preventative maintenance.",
     url: "/services",
+    type: "website",
     images: ["/og.png"],
   },
 };

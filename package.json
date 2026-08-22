@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:agents": "node scripts/verify-agent-endpoints.mjs"
   },
   "dependencies": {
     "@iconify-json/solar": "^1.2.7",

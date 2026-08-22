@@ -10,17 +10,19 @@ import { WhyGrid } from "@/components/why-grid";
 import { ServiceArea } from "@/components/service-area";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
+import { JsonLd, faqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "NCA HVAC | Air Conditioning & Refrigeration Services Perth",
+  title: "Air Conditioning Perth | Installation, Repairs & Servicing | NCA HVAC",
   description:
-    "Owner-operated air conditioning and refrigeration services across Perth. Residential and commercial HVAC installation, repair and maintenance. Free quotes.",
+    "Perth air conditioning installation, repairs and servicing: split systems, ducted systems, commercial HVAC and refrigeration. Owner-operated, fully insured, free quotes.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "NCA HVAC | Air Conditioning & Refrigeration Services Perth",
+    title: "Air Conditioning Perth | Installation, Repairs & Servicing | NCA HVAC",
     description:
-      "Owner-operated air conditioning and refrigeration services across Perth. Residential and commercial HVAC. Free quotes.",
+      "Perth air conditioning installation, repairs and servicing: split systems, ducted, commercial HVAC and refrigeration. Owner-operated, free quotes.",
     url: "/",
+    type: "website",
     images: ["/og.png"],
   },
 };
@@ -39,6 +41,7 @@ export default function HomePage() {
       <ServiceArea />
       <Faq />
       <FinalCta />
+      <JsonLd data={faqSchema()} />
     </>
   );
 }

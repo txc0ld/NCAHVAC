@@ -21,11 +21,11 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "NCA HVAC | Air Conditioning & Refrigeration Services Perth",
+    default: "Air Conditioning Perth | Installation, Repairs & Servicing | NCA HVAC",
     template: "%s | NCA HVAC",
   },
   description:
-    "Owner-operated air conditioning and refrigeration services across Perth. Residential and commercial installation, repair and preventative maintenance. Free quotes.",
+    "Perth air conditioning installation, repairs and servicing: split systems, ducted systems, commercial HVAC and refrigeration. Owner-operated, fully insured, free quotes.",
   openGraph: {
     siteName: site.name,
     type: "website",

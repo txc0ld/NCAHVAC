@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     description:
       "Family-run, owner-operated air conditioning and refrigeration in Perth. Deal directly with the technician doing the work.",
     url: "/about",
+    type: "website",
     images: ["/og.png"],
   },
 };

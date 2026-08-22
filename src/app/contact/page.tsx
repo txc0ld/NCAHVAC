@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description:
       "Request a free quote for air conditioning, refrigeration, repairs or maintenance in Perth.",
     url: "/contact",
+    type: "website",
     images: ["/og.png"],
   },
 };

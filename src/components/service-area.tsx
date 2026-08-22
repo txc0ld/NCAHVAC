@@ -18,8 +18,10 @@ export function ServiceArea() {
                   <span className="text-primary">and Western Australia</span>
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-                  The Perth metropolitan area is the core service area. Regional
-                  Western Australian work is considered by arrangement.
+                  The Perth metropolitan area is the core service area — from
+                  Joondalup to Rockingham and Fremantle to Midland, including
+                  the CBD and surrounding suburbs. Regional Western Australian
+                  work is considered by arrangement.
                 </p>
               </div>
             </div>
