@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
@@ -115,7 +116,9 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
       if (window.turnstile && widgetRef.current) {
         widgetIdRef.current = window.turnstile.render(widgetRef.current, {
           sitekey: TURNSTILE_KEY,
-          theme: "dark",
+          theme: document.documentElement.classList.contains("light")
+            ? "light"
+            : "dark",
           size: "flexible",
           callback: (token) => {
             tokenRef.current = token;
@@ -494,12 +497,19 @@ export function QuoteForm({ defaultService }: { defaultService?: string }) {
           status === "submitting" && "cursor-wait opacity-70",
         )}
       >
-        {status === "submitting" ? "Sending" : "Request My Free Quote"}
+        {status === "submitting" ? "Sending…" : "Request My Free Quote"}
       </button>
 
       <p className="mt-4 text-xs leading-relaxed text-ink/60">
         Your details are used only to respond to this enquiry and are never
-        sold. See our privacy statement for how information is handled.
+        sold. See our{" "}
+        <Link
+          href="/privacy"
+          className="underline transition-colors duration-300 hover:text-primary-bright"
+        >
+          privacy statement
+        </Link>{" "}
+        for how information is handled.
       </p>
     </form>
   );

@@ -133,6 +133,21 @@ summary::-webkit-details-marker {
     @apply mb-2 block font-condensed text-xs font-semibold tracking-[0.12em] text-ink/80 uppercase;
   }
 
+  /* Selects strip the native arrow (appearance-none); restore a themed
+     chevron affordance. SVG data URIs can't use currentColor, so each theme
+     paints its own muted stroke. */
+  select.field {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.75rem;
+  }
+
+  .light select.field {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23565e6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  }
+
   .btn-primary,
   .btn-ghost {
     @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-none px-6 py-3 font-condensed text-sm font-semibold tracking-[0.12em] uppercase transition-colors duration-300 active:translate-y-px;
