@@ -29,7 +29,7 @@ Three layers keep pages thin:
 
 Agent-readiness layer (keep in sync when adding pages):
 
-- **`src/proxy.ts`** (Next 16's renamed middleware) rewrites requests with `Accept: text/markdown` to `/md/*` and appends `Vary: Accept` to HTML responses — required for CDN-correct content negotiation.
+- **`src/proxy.ts`** (Next 16's renamed middleware) rewrites requests with `Accept: text/markdown` to `/md/*` and appends `Vary: Accept` to HTML responses. Platform caveat: Vercel strips custom `Vary` values from static prerendered pages (verified via the `X-Md-Alternate` probe in next.config.ts) — the markdown responses carry it, which satisfies acceptmarkdown.com, and Vercel runs the proxy before its cache so the variants can't poison each other.
 - **`src/lib/markdown.ts`** renders each page as markdown from the `src/content` modules; served by `src/app/md/[[...slug]]/route.ts` (markdown 404 with recovery links for unknown paths). A new page needs an entry in the `pages` map here and in `sitemap.ts`.
 - **`src/app/llms.txt/route.ts`** — agent index with when-to-use guidance.
 - Page-level `openGraph` objects fully replace the root layout's, so each page must declare its own `type: "website"`.
