@@ -17,9 +17,15 @@ const nextConfig: NextConfig = {
     root: path.join(process.cwd()),
   },
   headers() {
+    // x-md-alternate also serves as a live probe that these config headers
+    // reach production responses (Vercel normalizes Vary on static pages).
+    const headers = [
+      varyAccept,
+      { key: "X-Md-Alternate", value: "/md/:path" },
+    ];
     return Promise.resolve([
-      { source: "/", headers: [varyAccept] },
-      { source: "/(services|about|contact|privacy)", headers: [varyAccept] },
+      { source: "/", headers },
+      { source: "/(services|about|contact|privacy)", headers },
     ]);
   },
 };
