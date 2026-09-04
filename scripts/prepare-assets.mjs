@@ -22,25 +22,36 @@ async function run() {
     .linear(1.07, 0);
   await light.clone().resize({ width: 760 }).png().toFile(`${BRAND}/logo-light.png`);
 
-  // Badge crop for favicon: left ~36% of the trimmed dark logo, then re-trim + square pad.
+  // Favicon: the hexagon mark only. In the trimmed dark logo the mark occupies
+  // the first 32% of the width and the top 91% of the height; the wordmark
+  // starts after a clear column gap and the "AIR CONDITIONING" strip sits
+  // below a clear row gap, so both are excluded before re-trimming.
   const { width, height } = darkMeta.info;
-  const badgeW = Math.round(width * 0.36);
   const badge = await sharp(darkMeta.data)
-    .extract({ left: 0, top: 0, width: badgeW, height })
+    .extract({
+      left: 0,
+      top: 0,
+      width: Math.round(width * 0.32),
+      height: Math.round(height * 0.91),
+    })
     .trim({ threshold: 24 })
     .toBuffer({ resolveWithObject: true });
-  const side = Math.max(badge.info.width, badge.info.height);
-  const pad = Math.round(side * 0.08);
-  await sharp(badge.data)
-    .resize({
-      width: side + pad * 2,
-      height: side + pad * 2,
-      fit: "contain",
+  // Square #111111 canvas with 12% breathing room around the mark.
+  const { width: bw, height: bh } = badge.info;
+  const side = Math.round(Math.max(bw, bh) * 1.24);
+  // sharp runs resize before extend regardless of call order, so the padded
+  // canvas is materialised before the final downscale.
+  const iconBase = await sharp(badge.data)
+    .extend({
+      top: Math.floor((side - bh) / 2),
+      bottom: Math.ceil((side - bh) / 2),
+      left: Math.floor((side - bw) / 2),
+      right: Math.ceil((side - bw) / 2),
       background: "#111111",
     })
-    .resize(512, 512)
-    .png()
-    .toFile("src/app/icon.png");
+    .toBuffer();
+  await sharp(iconBase).resize(512, 512).png().toFile("src/app/icon.png");
+  await sharp(iconBase).resize(180, 180).png().toFile("src/app/apple-icon.png");
 
   // OG image: 1200x630, #111111 field, centered logo.
   const ogLogo = await sharp(darkMeta.data).resize({ width: 860 }).toBuffer();
