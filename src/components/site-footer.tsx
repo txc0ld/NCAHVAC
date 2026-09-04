@@ -1,9 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BrandLogo } from "./brand-logo";
+import arcDark from "../../public/brand/arc-dark.png";
+import arcLight from "../../public/brand/arc-light.png";
 import { Container } from "./container";
 import { serviceGroups } from "@/content/services";
 import { nav, site, telHref } from "@/lib/site";
 import { SolarIcon } from "@/lib/icons";
+
+const ARC_ALT = `ARCtick licence ${site.arcLicence}. Australian Refrigeration Council authorised refrigerant handler.`;
 
 export function SiteFooter() {
   return (
@@ -20,6 +25,26 @@ export function SiteFooter() {
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
               {site.supportLine}. Locally owned, family-run and owner-operated.
             </p>
+            <a
+              href="https://www.arctick.org"
+              target="_blank"
+              rel="noopener"
+              aria-label={`ARCtick licensed refrigerant handler, licence ${site.arcLicence}`}
+              className="mt-6 inline-block"
+            >
+              <Image
+                src={arcDark}
+                alt={ARC_ALT}
+                sizes="150px"
+                className="logo-screen theme-dark-only h-12 w-auto"
+              />
+              <Image
+                src={arcLight}
+                alt={ARC_ALT}
+                sizes="150px"
+                className="logo-multiply theme-light-only h-12 w-auto"
+              />
+            </a>
           </div>
 
           <div>
@@ -100,11 +125,16 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-ink/5 pt-6 text-xs text-ink/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
-            {/* Add ARCtick licence number here once issued. */}
-            <span className="ml-3">ABN 80 700 964 405</span>
-          </p>
+          <div className="flex flex-col gap-1">
+            <p>
+              &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+            </p>
+            <p className="flex flex-wrap gap-x-3">
+              <span>ABN {site.abn}</span>
+              <span>ACN {site.acn}</span>
+              <span>ARC Licence {site.arcLicence}</span>
+            </p>
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <p>
               Website created by{" "}

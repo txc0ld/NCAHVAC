@@ -10,6 +10,10 @@ export const site = {
   location: "Perth, WA",
   serviceArea:
     "Perth metropolitan area, with regional WA considered by arrangement",
+  abn: "80 700 964 405",
+  acn: "700 964 405",
+  /** ARCtick refrigerant handling licence (Australian Refrigeration Council). */
+  arcLicence: "AU069671",
 } as const;
 
 export const nav = [

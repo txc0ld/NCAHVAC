@@ -16,6 +16,26 @@ export function hvacBusinessSchema() {
     url: site.url,
     email: site.email,
     ...(site.phone ? { telephone: site.phone } : {}),
+    taxID: site.abn,
+    identifier: [
+      { "@type": "PropertyValue", propertyID: "ABN", value: site.abn },
+      { "@type": "PropertyValue", propertyID: "ACN", value: site.acn },
+      {
+        "@type": "PropertyValue",
+        propertyID: "ARC Licence",
+        value: site.arcLicence,
+      },
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "licence",
+      name: `ARCtick refrigerant handling licence ${site.arcLicence}`,
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Australian Refrigeration Council",
+        url: "https://www.arctick.org",
+      },
+    },
     image: `${site.url}/og.png`,
     logo: `${site.url}/brand/logo-dark.png`,
     address: {

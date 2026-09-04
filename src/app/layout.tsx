@@ -20,6 +20,8 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  /** Google Search Console ownership token (Fantom Labs account). */
+  verification: { google: "Z9U7KEAqM7LkiNEz0o3K_6cSTwDiywQbOQ4r6oX-2NU" },
   title: {
     default: "Air Conditioning Perth | Installation, Repairs & Servicing | NCA HVAC",
     template: "%s | NCA HVAC",
