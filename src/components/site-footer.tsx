@@ -25,26 +25,6 @@ export function SiteFooter() {
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
               {site.supportLine}. Locally owned, family-run and owner-operated.
             </p>
-            <a
-              href="https://www.arctick.org"
-              target="_blank"
-              rel="noopener"
-              aria-label={`ARCtick licensed refrigerant handler, licence ${site.arcLicence}`}
-              className="mt-6 inline-block"
-            >
-              <Image
-                src={arcDark}
-                alt={ARC_ALT}
-                sizes="150px"
-                className="logo-screen theme-dark-only h-12 w-auto"
-              />
-              <Image
-                src={arcLight}
-                alt={ARC_ALT}
-                sizes="150px"
-                className="logo-multiply theme-light-only h-12 w-auto"
-              />
-            </a>
           </div>
 
           <div>
@@ -121,6 +101,26 @@ export function SiteFooter() {
                 {site.location}
               </li>
             </ul>
+            <a
+              href="https://www.arctick.org"
+              target="_blank"
+              rel="noopener"
+              aria-label={`ARCtick licensed refrigerant handler, licence ${site.arcLicence}`}
+              className="mt-6 inline-block"
+            >
+              <Image
+                src={arcDark}
+                alt={ARC_ALT}
+                sizes="150px"
+                className="logo-screen theme-dark-only h-12 w-auto"
+              />
+              <Image
+                src={arcLight}
+                alt={ARC_ALT}
+                sizes="150px"
+                className="logo-multiply theme-light-only h-12 w-auto"
+              />
+            </a>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ export function SiteFooter() {
             <p className="flex flex-wrap gap-x-3">
               <span>ABN {site.abn}</span>
               <span>ACN {site.acn}</span>
-              <span>ARC Licence {site.arcLicence}</span>
+              <span>ARC {site.arcLicence}</span>
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
