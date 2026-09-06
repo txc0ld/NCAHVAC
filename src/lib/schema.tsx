@@ -4,6 +4,30 @@ import { faqs } from "@/content/home";
 import { posts, blogIntro, type Post, type Faq } from "@/content/blog";
 
 const BUSINESS_ID = `${site.url}/#business`;
+const OWNER_ID = `${site.url}/about#owner`;
+
+export function ownerSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": OWNER_ID,
+    name: site.owner.name,
+    jobTitle: site.owner.title,
+    worksFor: { "@id": BUSINESS_ID },
+    url: `${site.url}/about`,
+    knowsAbout: [
+      "Air conditioning installation and repair",
+      "Commercial HVAC maintenance",
+      "Commercial refrigeration",
+      "Refrigerant handling (ARC licensed)",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "licence",
+      name: `ARCtick refrigerant handling licence ${site.arcLicence}`,
+    },
+  };
+}
 
 export function hvacBusinessSchema() {
   return {
@@ -37,6 +61,7 @@ export function hvacBusinessSchema() {
         url: "https://www.arctick.org",
       },
     },
+    founder: { "@id": OWNER_ID },
     image: `${site.url}/og.png`,
     logo: `${site.url}/brand/logo-dark.png`,
     address: {
@@ -162,7 +187,7 @@ export function articleSchema(post: Post) {
     inLanguage: "en-AU",
     wordCount: countWords(post),
     timeRequired: `PT${post.readingMinutes}M`,
-    author: { "@id": BUSINESS_ID },
+    author: { "@id": OWNER_ID },
     publisher: { "@id": BUSINESS_ID },
     isPartOf: { "@id": `${site.url}/blog#blog` },
     about: {

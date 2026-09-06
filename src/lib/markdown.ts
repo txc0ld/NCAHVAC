@@ -144,7 +144,7 @@ function postMarkdown(post: Post) {
     "",
     `> ${post.answer}`,
     "",
-    `Published ${post.publishedAt}. Updated ${post.updatedAt}. By ${site.name}, ARC licence ${site.arcLicence}. Canonical: ${site.url}/blog/${post.slug}`,
+    `Published ${post.publishedAt}. Updated ${post.updatedAt}. By ${site.owner.name}, ${site.owner.title.toLowerCase()} at ${site.name}, ARC licence ${site.arcLicence}. Canonical: ${site.url}/blog/${post.slug}`,
     "",
     "## Key takeaways",
     "",

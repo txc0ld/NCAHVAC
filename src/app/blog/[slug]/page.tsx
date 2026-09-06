@@ -12,6 +12,7 @@ import { SolarIcon } from "@/lib/icons";
 import {
   JsonLd,
   articleSchema,
+  ownerSchema,
   faqSchemaFor,
   howToSchemaFor,
   breadcrumbSchema,
@@ -42,7 +43,7 @@ export async function generateMetadata({
       type: "article",
       publishedTime: `${post.publishedAt}T00:00:00+08:00`,
       modifiedTime: `${post.updatedAt}T00:00:00+08:00`,
-      authors: [site.name],
+      authors: [site.owner.name],
       images: ["/og.png"],
     },
   };
@@ -108,7 +109,7 @@ export default async function BlogPostPage({
               <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink/70">
                 <span className="inline-flex items-center gap-2">
                   <SolarIcon name="user-check-linear" className="text-base text-primary" />
-                  By {site.name}, ARC licence {site.arcLicence}
+                  By {site.owner.name}, {site.owner.title.toLowerCase()} at {site.name}. ARC licence {site.arcLicence}
                 </span>
                 <span className="inline-flex items-center gap-2">
                   <SolarIcon name="calendar-linear" className="text-base text-primary" />
@@ -267,6 +268,7 @@ export default async function BlogPostPage({
       <JsonLd
         data={[
           articleSchema(post),
+          ownerSchema(),
           faqSchemaFor(post.faqs),
           ...howToSchemaFor(post),
           breadcrumbSchema([
