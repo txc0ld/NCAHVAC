@@ -36,9 +36,10 @@ async function run() {
     })
     .trim({ threshold: 24 })
     .toBuffer({ resolveWithObject: true });
-  // Square #111111 canvas with 12% breathing room around the mark.
+  // Square #111111 canvas. Google and mobile launchers mask favicons to a
+  // circle, so the mark fills the canvas almost edge to edge (3% margin).
   const { width: bw, height: bh } = badge.info;
-  const side = Math.round(Math.max(bw, bh) * 1.24);
+  const side = Math.round(Math.max(bw, bh) * 1.06);
   // sharp runs resize before extend regardless of call order, so the padded
   // canvas is materialised before the final downscale.
   const iconBase = await sharp(badge.data)
