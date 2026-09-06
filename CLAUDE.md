@@ -25,6 +25,7 @@ Three layers keep pages thin:
 
 - **`src/content/*.ts`** — all copy (services, FAQs, trust items, about). Edit copy here, not in components.
 - **`src/lib/site.ts`** — single source of truth for business identity (name, phone, email, URL, service area). `NEXT_PUBLIC_PHONE` / `NEXT_PUBLIC_SITE_URL` override at build time. Everything (metadata, JSON-LD, footer, CTAs) reads from here.
+- **`src/content/blog/`** — Guides blog. Each post is a typed `Post` object (`types.ts`) of content blocks; `index.ts` sets display order (commercial first). One source renders the HTML article (`components/article-body.tsx`), the `/md/blog/*` markdown mirror, the sitemap, llms.txt and JSON-LD (BlogPosting, FAQPage, HowTo). Adding a post = new file in `posts/` + import in `index.ts`; nothing else to touch. Every post needs an `answer` (direct answer first, for AI extraction), `keyTakeaways`, real `faqs`, and honest `publishedAt`/`updatedAt`.
 - **`src/lib/schema.tsx`** — all JSON-LD (HVACBusiness/LocalBusiness/Organization, WebSite, Service, FAQPage, BreadcrumbList) rendered via the `JsonLd` component. SEO changes flow through this file plus per-page `metadata` exports; `sitemap.ts`/`robots.ts` live in `src/app`.
 
 Agent-readiness layer (keep in sync when adding pages):
