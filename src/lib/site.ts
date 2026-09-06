@@ -11,7 +11,7 @@ export const site = {
   serviceArea:
     "Perth metropolitan area, with regional WA considered by arrangement",
   /** Owner-operator and author of the Guides. Surname withheld by choice. */
-  owner: { name: "Nikolai", title: "Owner and lead technician" },
+  owner: { name: "Nik", title: "Owner and lead technician" },
   abn: "80 700 964 405",
   acn: "700 964 405",
   /** ARCtick refrigerant handling licence (Australian Refrigeration Council). */
