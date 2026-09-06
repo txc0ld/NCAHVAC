@@ -1,6 +1,7 @@
 import { site } from "./site";
 import { serviceGroups } from "@/content/services";
 import { faqs } from "@/content/home";
+import { posts, blogIntro, type Post, type Faq } from "@/content/blog";
 
 const BUSINESS_ID = `${site.url}/#business`;
 
@@ -107,6 +108,116 @@ export function faqSchema() {
       acceptedAnswer: { "@type": "Answer", text: faq.a },
     })),
   };
+}
+
+export function faqSchemaFor(list: Faq[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: list.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+}
+
+export function blogSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${site.url}/blog#blog`,
+    name: `${site.name} Guides`,
+    description: blogIntro,
+    url: `${site.url}/blog`,
+    publisher: { "@id": BUSINESS_ID },
+    inLanguage: "en-AU",
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      "@id": `${site.url}/blog/${p.slug}#article`,
+      headline: p.title,
+      url: `${site.url}/blog/${p.slug}`,
+      datePublished: `${p.publishedAt}T00:00:00+08:00`,
+      dateModified: `${p.updatedAt}T00:00:00+08:00`,
+    })),
+  };
+}
+
+export function articleSchema(post: Post) {
+  const url = `${site.url}/blog/${post.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": ["BlogPosting", "Article"],
+    "@id": `${url}#article`,
+    headline: post.title,
+    description: post.description,
+    abstract: post.answer,
+    articleSection: post.category,
+    keywords: [post.category, "Perth", "air conditioning", "HVAC", "refrigeration"],
+    image: `${site.url}${post.image.src}`,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: `${post.publishedAt}T00:00:00+08:00`,
+    dateModified: `${post.updatedAt}T00:00:00+08:00`,
+    inLanguage: "en-AU",
+    wordCount: countWords(post),
+    timeRequired: `PT${post.readingMinutes}M`,
+    author: { "@id": BUSINESS_ID },
+    publisher: { "@id": BUSINESS_ID },
+    isPartOf: { "@id": `${site.url}/blog#blog` },
+    about: {
+      "@type": "Thing",
+      name: "Air conditioning and refrigeration in Perth, Western Australia",
+    },
+    spatialCoverage: {
+      "@type": "City",
+      name: "Perth",
+      containedInPlace: { "@type": "State", name: "Western Australia" },
+    },
+  };
+}
+
+export function howToSchemaFor(post: Post) {
+  return post.body
+    .filter((b) => b.type === "howto")
+    .map((b) => ({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: b.name,
+      ...(b.totalTime ? { totalTime: b.totalTime } : {}),
+      step: b.steps.map((s, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+      })),
+    }));
+}
+
+function countWords(post: Post) {
+  const text = [
+    post.answer,
+    ...post.keyTakeaways,
+    ...post.body.flatMap((b) => {
+      switch (b.type) {
+        case "h2":
+        case "h3":
+        case "p":
+          return [b.text];
+        case "ul":
+        case "ol":
+          return b.items;
+        case "table":
+          return b.rows.flat();
+        case "callout":
+          return [b.title, b.text];
+        case "howto":
+          return b.steps.flatMap((s) => [s.name, s.text]);
+      }
+    }),
+    ...post.faqs.flatMap((f) => [f.q, f.a]),
+  ].join(" ");
+  return text.split(/\s+/).filter(Boolean).length;
 }
 
 export function breadcrumbSchema(

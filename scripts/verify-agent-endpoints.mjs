@@ -57,7 +57,7 @@ await test("Accept: text/markdown on unknown path returns markdown 404", async (
 });
 
 await test("every page has a /md markdown rendition", async () => {
-  for (const p of ["/md", "/md/services", "/md/about", "/md/contact", "/md/privacy"]) {
+  for (const p of ["/md", "/md/services", "/md/about", "/md/contact", "/md/privacy", "/md/blog", "/md/blog/commercial-hvac-maintenance-contract-perth-what-to-expect"]) {
     const res = await fetch(`${base}${p}`);
     assert(res.status === 200, `${p}: expected 200, got ${res.status}`);
     const type = res.headers.get("content-type") ?? "";
