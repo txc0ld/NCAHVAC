@@ -8,7 +8,7 @@ export const post: Post = {
   lede: "A diagnostic order that goes from the free fixes to the faults that need an ARC-licensed technician.",
   category: "Troubleshooting",
   publishedAt: "2026-09-07",
-  updatedAt: "2026-09-07",
+  updatedAt: "2026-09-08",
   readingMinutes: 7,
   image: { src: "/images/repair.jpg", alt: "Technician testing an air conditioning outdoor unit with gauges" },
   answer:
@@ -85,6 +85,20 @@ export const post: Post = {
         ["Cools at night, cannot keep up on 40 degree days", "Undersized, dirty condenser, heat load", "Technician assessment"],
         ["Cools most rooms, one zone stays warm", "Failed zone damper or split duct", "Technician"],
         ["Musty smell with weak cooling", "Mould on coil and in drain pan, dirty filter", "Clean, then technician for coil treatment"],
+      ],
+    },
+    { type: "h2", text: "Why Perth systems stop cooling on the hottest days" },
+    {
+      type: "p",
+      text: "Perth has two conditions that push a marginal system over the edge. The first is the dry easterly: a run of 38 to 42 degree days where the outdoor unit is trying to reject heat into air hotter than its design point, so a condenser that is even slightly dirty, or a charge that is even slightly low, shows up as a room that will not get below 28. The second is the coastal salt air west of the freeway, which corrodes condenser fins and copper and turns a five-year-old unit into one that loses capacity every summer.",
+    },
+    {
+      type: "ul",
+      items: [
+        "If the system copes until about 35 degrees and then loses ground, book a condenser clean and a charge check before the next heatwave. That is the most common Perth call-out we attend, and the cheapest to fix in advance.",
+        "Coastal suburbs from Fremantle to Joondalup should have condenser coils cleaned twice a year and inspected for fin corrosion. A coil coating at install time pays for itself here.",
+        "Units on north or west walls in full afternoon sun run hotter than the same unit in shade. A simple shade screen that does not block airflow can recover several percent of capacity on a 40 degree day.",
+        "In the eastern suburbs and hills, dust from summer easterlies packs condenser coils faster than near the coast, so check them after every dust event.",
       ],
     },
     { type: "h2", text: "When to call a technician" },

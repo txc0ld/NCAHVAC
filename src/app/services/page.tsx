@@ -10,6 +10,7 @@ import { FinalCta } from "@/components/final-cta";
 import { serviceGroups } from "@/content/services";
 import { SolarIcon } from "@/lib/icons";
 import { JsonLd, servicesSchema, breadcrumbSchema } from "@/lib/schema";
+import { GuideLinks, guidesForService } from "@/components/guides-strip";
 
 export const metadata: Metadata = {
   title: "Air Conditioning Services Perth | Split Systems, Ducted & Refrigeration",
@@ -132,6 +133,14 @@ export default function ServicesPage() {
                   Get a quote for this work
                   <SolarIcon name="arrow-right-linear" className="text-base" />
                 </Link>
+                {guidesForService(service.slug).length ? (
+                  <div className="mt-10">
+                    <h3 className="font-condensed text-xs font-semibold tracking-[0.2em] text-ink/60 uppercase">
+                      Related guides
+                    </h3>
+                    <GuideLinks items={guidesForService(service.slug)} className="mt-2 border-t border-ink/10" />
+                  </div>
+                ) : null}
               </Reveal>
             </div>
           </Container>

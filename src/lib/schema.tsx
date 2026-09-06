@@ -12,9 +12,12 @@ export function ownerSchema() {
     "@type": "Person",
     "@id": OWNER_ID,
     name: site.owner.name,
+    givenName: site.owner.givenName,
+    familyName: site.owner.familyName,
     jobTitle: site.owner.title,
     worksFor: { "@id": BUSINESS_ID },
-    url: `${site.url}/about`,
+    url: `${site.url}/about#owner`,
+    mainEntityOfPage: `${site.url}/about#owner`,
     knowsAbout: [
       "Air conditioning installation and repair",
       "Commercial HVAC maintenance",

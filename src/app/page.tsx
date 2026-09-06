@@ -5,6 +5,7 @@ import { ServicesGrid } from "@/components/services-grid";
 import { Stats } from "@/components/stats";
 import { TrustTicker } from "@/components/ticker";
 import { MaintenanceBanner } from "@/components/maintenance-banner";
+import { GuidesStrip } from "@/components/guides-strip";
 import { AboutSplit } from "@/components/about-split";
 import { WhyGrid } from "@/components/why-grid";
 import { ServiceArea } from "@/components/service-area";
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Stats />
       <TrustTicker />
       <MaintenanceBanner />
+      <GuidesStrip />
       <AboutSplit />
       <WhyGrid />
       <ServiceArea />

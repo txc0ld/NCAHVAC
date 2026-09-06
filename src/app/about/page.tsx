@@ -9,7 +9,9 @@ import { TrustTicker } from "@/components/ticker";
 import { QuoteCta, CallCta } from "@/components/cta";
 import { about, aboutPage } from "@/content/about";
 import { SolarIcon } from "@/lib/icons";
-import { JsonLd, breadcrumbSchema } from "@/lib/schema";
+import { JsonLd, breadcrumbSchema, ownerSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About | Owner-Operated HVAC Perth",
@@ -130,6 +132,44 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <section id="owner" className="scroll-mt-28 py-24 lg:py-32">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+            <Reveal>
+              <p className="flex items-center gap-4 font-condensed text-xs font-semibold tracking-[0.2em] text-ink/60 uppercase">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                The technician
+              </p>
+              <h2 className="mt-4 font-condensed text-5xl leading-[0.95] font-medium tracking-[-0.02em] uppercase lg:text-6xl">
+                {site.owner.name}, <span className="text-primary">owner and lead technician.</span>
+              </h2>
+            </Reveal>
+            <Reveal>
+              <dl className="grid gap-px border border-ink/10 bg-ink/5 sm:grid-cols-2">
+                {[
+                  ["Role", site.owner.title],
+                  ["Experience", "10+ years hands-on across residential, commercial and refrigeration"],
+                  ["Licence", `ARCtick refrigerant handling licence ${site.arcLicence}`],
+                  ["Based", site.location],
+                ].map(([k, v]) => (
+                  <div key={k} className="bg-canvas p-6">
+                    <dt className="font-condensed text-xs font-semibold tracking-[0.2em] text-ink/60 uppercase">{k}</dt>
+                    <dd className="mt-2 text-base leading-snug text-ink">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
+                {site.owner.givenName} quotes, installs, services and writes the{" "}
+                <Link href="/blog" className="text-ink underline decoration-primary underline-offset-4 transition-colors hover:text-primary-bright">
+                  guides
+                </Link>{" "}
+                on this site. Every figure in them comes from work on Perth systems, not from a content brief.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
       <Stats />
       <TrustTicker />
 
@@ -149,10 +189,13 @@ export default function AboutPage() {
         </Container>
       </section>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "About", path: "/about" },
-        ])}
+        data={[
+          ownerSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
       />
     </>
   );
